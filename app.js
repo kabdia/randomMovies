@@ -12,15 +12,34 @@ let movies = [
 let containerMovies = document.querySelector('.movies__container');
 
 function getMovies() {
-    containerMovies.innerHTML = '';
-    for (let i = 0; i <= movies.length; i++) {
-        containerMovies.innerHTML += `
-        <div>
-            <p>${movies[i].name}</p>           
-        </div>
-        `
+    containerMovies.classList.add('container_list');    
+
+    for (let i = 0; i <= movies.length; i++) { 
+
+        let item = document.createElement('div');
+        item.classList.add('list-movie');
+        containerMovies.appendChild(item);  
+             
+        createElement(item,'img',i);
+        createElement(item,'h3',i);
     }
     return containerMovies;   
 }
 getMovies();
 
+function createElement(parent,elem,i) {    
+    switch (elem) {        
+        case 'img': {
+            let img = document.createElement(elem);
+            img.src = `${movies[i].pic}`;
+            img.classList.add('img-style');
+            parent.appendChild(img);
+        } break;
+        case 'h3': {
+            let h3 = document.createElement(elem);
+            h3.innerHTML = `${movies[i].name}`;            
+            parent.appendChild(h3);
+        } break;
+    }   
+    
+}
