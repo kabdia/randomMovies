@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Случайный фильм</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/gh/ru51a4/minimal_react/dist/mreact.js"></script>
+
+</head>
+
+<body>
+    <div class="contаiner">
+        <header>
+            <div class="header__container">
+                <h1>Random film Picker</h1>
+            </div>
+        </header>
+        <main class="main">
+            <r-main>
+        </main>
+        <footer>(c) superwebteam 2024</footer>
+
+    </div>
+    <script src="app.js"></script>
+    <script>
+        var components = [
+            {
+                name: 'r-main',
+                component: main
+            },
+            {
+                name: 'film',
+                component: film
+            }
+        ];
+
+        Render = new render(components);
+
+        function _main() {
+            Render.renderDom();
+            Render.renderDom();
+            Render.renderDom();
+
+        }
+
+        _main();
+    </script>
+</body>
+
+
+</html>
