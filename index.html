@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Случайный фильм</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contаiner">
+        <header>
+            <div class="header__container">
+                <h1>Random film Picker</h1>
+            </div>
+        </header>
+        <main>
+            <div class="generator">
+                <div class="generator__container">
+                    <div class="container_title"><h1>Генератор случайных фильмов</h1></div>
+                    <div class="container__choice">
+                        <select class="container__select" name="genre" id="genre">
+                            <option value="" disabled selected hidden>Выберите жанр</option>
+                            <option value="1">История</option>
+                            <option value="2">Боевик</option>
+                            <option value="3">Драма</option>
+                            <option value="4">Приключения</option>
+                            <option value="5">Фентези</option>
+                            <option value="6">Мелодрама</option>
+                            <option value="7">Биография</option>
+                            <option value="8">Триллер</option>
+                            <option value="9">Комедия</option>
+                            <option value="10">Семейный</option>
+                            <option value="11">Фантастика</option>
+                        </select>
+                        <div class="generator__button">
+                            <button class="button_style">Случайный фильм</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="movies">
+                <div class="movies__container">
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
