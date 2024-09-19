@@ -20,9 +20,8 @@ class main extends component {
         //todo new feature - event select
         let el = document.querySelector(`#genre`)
         let g = el.options[el.selectedIndex].text.toLowerCase();
-        let res = !el.selectedIndex ? movies : movies.filter((elem) => elem.genre.includes(g));
-        //todo bugfix - 1 el in r-for
-        this.state.current = [res[getRandomInt(res.length - 1)], res[getRandomInt(res.length - 1)]];
+        let res = movies.filter((elem) => elem.genre.includes(g));
+        this.state.current = !el.selectedIndex ? movies : [res[getRandomInt(res.length - 1)]];
     }
     body() {
         return `
