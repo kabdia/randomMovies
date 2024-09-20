@@ -11,7 +11,10 @@ let movies = [
 
 class main extends component {
     state = {
-        current: movies
+        current: movies,
+        empty: () => {
+            return !this.state.current.length;
+        }
     }
     filter() {
         function getRandomInt(max) {
@@ -21,7 +24,8 @@ class main extends component {
         let el = document.querySelector(`#genre`)
         let g = el.options[el.selectedIndex].text.toLowerCase();
         let res = movies.filter((elem) => elem.genre.includes(g));
-        this.state.current = !el.selectedIndex ? movies : [res[getRandomInt(res.length - 1)]];
+        let cFilm = res[getRandomInt(res.length - 1)];
+        this.state.current = !el.selectedIndex ? movies : cFilm ? [cFilm] : [];
     }
     body() {
         return `
@@ -29,11 +33,11 @@ class main extends component {
             <div class="generator">
                 <div class="generator__container">
                     <div class="container_title">
-                        <h1>Генератор случайных фильмов</h1>
+                        <h1>Генератор случайных фильмов</h1> 
                     </div>
                     <div class="container__choice">
                         <select class="container__select" name="genre" id="genre">
-                            <option value="" disabled selected hidden>Выберите жанр</option>
+                            <option value="">Выберите жанр</option>
                             <option value="history">История</option>
                             <option value="action">Боевик</option>
                             <option value="drama">Драма</option>
@@ -57,6 +61,9 @@ class main extends component {
                     <film r-for="current">
                 </div>
             </div>
+            <div style="display:flex; justify-content:center">
+                <h3 r-if="empty">empty</h3>
+            </div>
         </div>
         `
     }
@@ -66,8 +73,8 @@ class film extends component {
     state = {
         pic: () => { return this.getProps().pic },
         name: () => { return this.getProps().name },
-        year: () => { return this.getProps().genre.join(",") + '<br>' + this.getProps().year },
-        link: () => { return 'https://www.kinopoisk.ru/film/2656' }
+        desc: () => { return this.getProps().genre.join(",") + '<br>' + this.getProps().year },
+        link: () => { return this.getProps().link }
     }
     body() {
         return `
@@ -76,7 +83,7 @@ class film extends component {
             </img>
             <h3 r-bind="name">
             </h3>
-            <p r-bind="year" style="margin-top: auto;width: 100%;" class="p-style">
+            <p r-bind="desc" style="margin-top: auto;width: 100%;" class="p-style">
                 
             </p>
             <a class="a-style" r-bind.href="link">
