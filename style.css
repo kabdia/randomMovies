@@ -13,6 +13,7 @@
     gap:20px;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 header {
     display:flex; 
@@ -27,6 +28,9 @@ header {
 .header__container {
     width: 80%;    
 }   
+.header__container {
+    cursor:pointer;
+}
 main {
     display:flex;    
     flex-direction: column;
@@ -68,8 +72,12 @@ main {
     width:150px;
     height:50px;
     border-radius: 10px;
-    background-color: blue;
+    border: none;
+    background: rgb(68,62,182);
+    background: linear-gradient(90deg, rgba(68,62,182,1) 0%, rgba(0,212,255,1) 100%);
     color:white;
+    font-weight: 500;
+    cursor:pointer;
 }
 .movies {
     width:100%;
@@ -80,8 +88,14 @@ main {
 }
 .container_list {
     display:grid;    
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); 
-   
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));    
+    height:100%;
+    gap:10px 10px;    
+}
+.container_movie_random {
+    display:grid;    
+    grid-template-columns: 290px; 
+   justify-content: center;
     height:100%;
     gap:10px 10px;    
 }
@@ -90,7 +104,13 @@ main {
     align-items: flex-start;
     flex-wrap:wrap;
     gap:10px;
-    width:100%;    
+    width:100%;  
+}
+.item-movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:20px;
 }
 .img-style {
     object-fit: cover;
@@ -106,8 +126,9 @@ main {
     text-decoration: none;
     color:black;
     background-color: rgb(113, 113, 226);    
-    height:7%;
+    height:40px;
     color:white;
+    
     font-size: 'Roboto';
     align-self: flex-end;
     width:100%;

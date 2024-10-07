@@ -9,14 +9,26 @@ let movies = [
     {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/9e9e2b2c-a3c1-462e-8d84-e6a19fbe5b9c/300x450', name:'Пятый элемент',genre:['фантастика','боевик','комедия','мелодрама'],year:1997,link:'https://www.kinopoisk.ru/film/2656/'},
 ]
 let containerMovies = document.querySelector('.movies__container');
+containerMovies.classList.add('container_list');
 
+//функция вывода фильмов на экран
 function getMovies(arr) {
-
+        containerMovies.innerHTML = '';
+        arr = arr.sort(() => Math.random() - 0.5);
         for (let i = 0; i < arr.length; i++) { 
             
-            let item = document.createElement('div');
-            item.classList.add('list-movie');
+            let item = document.createElement('div'); 
+            item.classList.add('item-movie');           
             containerMovies.appendChild(item);
+
+            if (arr.length == 1) {
+                containerMovies.classList.remove('container_list');
+                containerMovies.classList.add('container_movie_random');
+            } else {
+                containerMovies.classList.remove('container_movie_random');
+                containerMovies.classList.add('container_list');                
+            }
+            
 
             for (let key in arr[i]) {              
                 if (key == "pic") {
@@ -32,9 +44,13 @@ function getMovies(arr) {
     }
     return containerMovies;   
 }
-
+//первичный вывод списка фильмов
+document.querySelector('h1').addEventListener('click', function() {
+    getMovies(movies);
+})
 getMovies(movies);
 
+//функция добавления фильма в контейнер
 function createElement(arr,parent,elem,i) {    
     switch (elem) {        
         case 'img': {
@@ -70,6 +86,7 @@ function createElement(arr,parent,elem,i) {
 let button = document.querySelector('.button_style');
 let select = document.querySelector('#genre');
 
+//действия при нажатии на кнопку
 button.addEventListener('click', function() {  
     containerMovies.innerHTML ='';
     let genre = select.value;  
@@ -110,6 +127,7 @@ button.addEventListener('click', function() {
     }
 });
 
+//фильтр фильмов
 function getFilter(g){    
     let res = movies.filter((elem)=> elem.genre.includes(g));    
     let randomNum = Math.floor(Math.random() * res.length); 
