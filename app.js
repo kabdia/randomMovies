@@ -7,6 +7,18 @@ let movies = [
     {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/10592371/7f0e6761-4635-46ad-b804-59d5cf1ae85c/300x450',name:'Титаник',genre:['мелодрама','история','триллер','драма'],year:2008,link:'https://www.kinopoisk.ru/film/2213/'},
     {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/022a58e3-5b9b-411b-bfb3-09fedb700401/300x450',name:'Один дома',genre:['комедия', 'семейный'],year:1990,link:'https://www.kinopoisk.ru/film/8124/'},
     {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/9e9e2b2c-a3c1-462e-8d84-e6a19fbe5b9c/300x450', name:'Пятый элемент',genre:['фантастика','боевик','комедия','мелодрама'],year:1997,link:'https://www.kinopoisk.ru/film/2656/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/1c5afd90-ae72-4c11-b20b-971a23ca701d/orig', name:'Человек-паук',genre:['фантастика','боевик','приключения'],year:2002,link:'https://www.kinopoisk.ru/film/838/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/221559d4-db98-423e-a077-ebfaeb15c510/orig', name:'Человек-паук 2',genre:['фантастика','боевик','приключения'],year:2004,link:'https://www.kinopoisk.ru/film/2898/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/48f0169b-19b4-4b22-af2c-b7b5e5c6933f/orig', name:'Человек-паук 3: Враг в отражении',genre:['фантастика','боевик','приключения'],year:2007,link:'https://www.kinopoisk.ru/film/82441/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/e8444e49-437f-4dad-8c7a-e056a5468ce9/orig', name:'В поисках Немо',genre:['мультфильм','комедия','приключения','семейный'],year:2003,link:'https://www.kinopoisk.ru/film/7908/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/1f7b3dc7-d10b-4e2d-b5b4-ca257d3737ac/orig', name:'Кавказская пленница, или Новые приключения Шурика',genre:['комедия','приключения','мелодрамма'],year:1966,link:'https://www.kinopoisk.ru/film/44745/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/a83adfd8-8051-49d7-85e3-a4f077852688/orig', name:'Маска',genre:['комедия','фентези'],year:1994,link:'https://www.kinopoisk.ru/film/6039/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/cb66f2cd-d4a1-4093-8743-24c7ab2a5998/orig', name:'Мастер и Маргарита (мини–сериал)',genre:['триллер','драма','мелодрама'],year:2005,link:'https://www.kinopoisk.ru/series/79429/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/9d004f06-cb4c-432a-b893-c911b5766ee3/orig', name:'Спирит: Душа прерий',genre:['приключения','семейный'],year:2005,link:'https://www.kinopoisk.ru/film/839/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/9cbec89c-a80e-4e1c-99b9-89e5c46074ce/orig', name:'Анна и король',genre:['драма','мелодрама','история'],year:1999,link:'https://www.kinopoisk.ru/film/5336/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/eca32434-6bff-4dde-b3a6-db37e5920368/orig', name:'Основатель',genre:['биография','драма'],year:2016,link:'https://www.kinopoisk.ru/film/893245/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/0e6d2ab8-3e03-4461-92f2-c9224677ffcb/orig', name:'Алеша Попович и Тугарин Змей',genre:['комедия','приключения','фентези','мелодрама','семейный'],year:2004,link:'https://www.kinopoisk.ru/film/81041/'},
+    {pic:'https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/9f72f545-9b1f-4280-8e98-f9673fb0fb05/orig', name:'Анна Каренина',genre:['драма','мелодрама'],year:2012,link:'https://www.kinopoisk.ru/film/575195/'},
 ]
 let containerMovies = document.querySelector('.movies__container');
 containerMovies.classList.add('container_list');
