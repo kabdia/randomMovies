@@ -44,13 +44,13 @@ function getMovies(arr) {
 
             for (let key in arr[i]) {              
                 if (key == "pic") {
-                    createElement(arr,item,'img',i);
+                    createElement(arr, item, 'img', i);
                 } else if (key == "name") {
-                    createElement(arr,item,'h3',i);
+                    createElement(arr, item, 'h3', i);
                 } else if (key == "genre") {
-                    createElement(arr,item,'p',i);
+                    createElement(arr, item, 'p', i);
                 } else if (key == "link") {
-                    createElement(arr,item,'a',i);
+                    createElement(arr, item, 'a', i);
                 }      
         }                
     }
@@ -63,7 +63,7 @@ document.querySelector('h1').addEventListener('click', function() {
 getMovies(movies);
 
 //функция добавления фильма в контейнер
-function createElement(arr,parent,elem,i) {    
+function createElement(arr, parent, elem, i) {    
     switch (elem) {        
         case 'img': {
             let img = document.createElement(elem);
@@ -98,45 +98,25 @@ function createElement(arr,parent,elem,i) {
 let button = document.querySelector('.button_style');
 let select = document.querySelector('#genre');
 
+let genres = {
+    "history":"история",
+    "action":"боевик",
+    "drama":"драма",
+    "adventures":"приключения",
+    "fantasy":"фэнтези",
+    "melodrama":"мелодрама",
+    "biography":"биография",
+    "thriller":"триллер",
+    "comedy":"комедия",
+    "family":"семейный",
+    "fantastic":"фантастика",
+}
+
 //действия при нажатии на кнопку
 button.addEventListener('click', function() {  
     containerMovies.innerHTML ='';
-    let genre = select.value;  
-    switch (genre) {
-        case 'history': {            
-            getFilter('история');
-        } break;
-        case 'action': {            
-            getFilter('боевик');    
-        } break;
-        case 'drama': {
-            getFilter('драма');           
-        } break;
-        case 'adventures': {
-            getFilter('приключения');         
-        } break;
-        case 'fantasy': {
-            getFilter('фэнтези');    
-        } break;
-        case 'melodrama': {
-            getFilter('мелодрама');    
-        } break;
-        case 'biography': {
-            getFilter('биография');
-        } break;
-        case 'thriller': {
-            getFilter('триллер');
-        } break;
-        case 'comedy': {
-            getFilter('комедия');
-        } break;
-        case 'family': {
-            getFilter('семейный');
-        } break;
-        case 'fantastic': {
-            getFilter('фантастика');
-        } break;           
-    }
+    let genre = select.value;    
+    getFilter(genres[genre]);    
 });
 
 //фильтр фильмов
