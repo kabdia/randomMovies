@@ -99,17 +99,17 @@ let button = document.querySelector('.button_style');
 let select = document.querySelector('#genre');
 
 let genres = {
-    "history":"история",
-    "action":"боевик",
-    "drama":"драма",
-    "adventures":"приключения",
-    "fantasy":"фэнтези",
-    "melodrama":"мелодрама",
-    "biography":"биография",
-    "thriller":"триллер",
-    "comedy":"комедия",
-    "family":"семейный",
-    "fantastic":"фантастика",
+    "history": "история",
+    "action": "боевик",
+    "drama": "драма",
+    "adventures": "приключения",
+    "fantasy": "фэнтези",
+    "melodrama": "мелодрама",
+    "biography": "биография",
+    "thriller": "триллер",
+    "comedy": "комедия",
+    "family": "семейный",
+    "fantastic": "фантастика",
 }
 
 //действия при нажатии на кнопку
