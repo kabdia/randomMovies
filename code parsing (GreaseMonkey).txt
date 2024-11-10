@@ -1,0 +1,89 @@
+// ==UserScript==
+// @name     ParsingKinopoisk
+// @version  1
+// @grant    none
+// ==/UserScript==
+
+
+let path = window.location.pathname;
+let movies = JSON.parse(localStorage.getItem('movies')) || [];
+//button for switching pagination
+let button = document.querySelector('.styles_end__aEsmB')
+
+ 
+if (path == '/lists/movies/top250/') {   
+  
+  let items = document.querySelectorAll("div[data-test-id='movie-list-item']");  
+  //take all links of movies with page
+  let links = [];
+  
+  for (let item of items) {
+    let a = item.getElementsByTagName('a');  
+    if (a.length > 0) {
+      links.push(a[0].href);
+    }
+  }
+  //enter in movie`s page and look for datas for create object
+  Promise.all(links.map(link => 
+    fetch(link)
+      .then(response => response.text())
+      .then(data => {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(data, 'text/html');
+        
+        let movie = {
+          'pic': null,
+          'name': null,
+          'genre': null,
+          'year': null,
+          'link': link 
+        };
+
+        let img = doc.querySelector('.film-poster');
+        if (img) {
+          movie['pic'] = img.src;
+          movie['name'] = img.alt;
+        }
+
+        let year = doc.querySelector('.styles_link__3QfAk');
+        if (year) {
+          movie['year'] = year.textContent;
+        }
+    		let genre = doc.querySelectorAll('div[data-test-id="encyclopedic-table"] div:nth-child(3) a');    		
+				if (genre) {
+          let glist = [];
+          genre.forEach(genre => glist.push(genre.textContent));          
+          movie['genre']= glist.filter(word => word !== 'слова');
+        }
+    		
+        return movie; // return object movie`s object
+      })
+      .catch(err => {
+        console.error('Ошибка при получении данных фильма:', err);
+        return null; // if error return null
+      })
+  ))
+  .then(results => {    
+    movies.push(...results.filter(movie => movie !== null));
+   //saving datas in localstorage   
+   	localStorage.setItem('movies', JSON.stringify(movies));
+    //got to next page
+    window.open(button);
+  });  
+ 
+}
+
+if (path == '/lists/movies/top250/null/') {
+  const data = JSON.stringify(movies, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });    
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+    a.href = url;
+    a.download = 'data-movies.json';
+    document.body.appendChild(a);
+    a.click();
+
+    // remove link after downloading
+  document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
