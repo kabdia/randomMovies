@@ -1,5 +1,5 @@
 let movies = [];
-fetch('./data-movies.json')
+fetch('./assets/data-movies.json')
     .then(response => response.json())
     .then(data => {        
         movies.push(...data);
