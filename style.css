@@ -35,7 +35,8 @@ main {
     display:flex;    
     flex-direction: column;
     gap:10px;
-    align-items: center;    
+    align-items: center;  
+    justify-content: center;  
     width:100%; 
     height:max-content;     
 }
@@ -110,7 +111,7 @@ main {
 .item-movie {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between;    
     gap:20px;
 }
 .img-style {
@@ -133,4 +134,19 @@ main {
     font-size: 'Roboto';
     align-self: flex-end;
     width:100%;
+}
+
+@media screen and (max-width:400px){
+    .container_list {
+        grid-template-columns: none;
+    }   
+    .header__container {
+        width: 92%;
+    }
+    .header__container h1 {
+        font-size: 25px;
+    }
+    .container_title {
+        font-size: 18px;
+    }
 }
