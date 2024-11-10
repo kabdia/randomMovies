@@ -3,6 +3,7 @@ fetch('./assets/data-movies.json')
     .then(response => response.json())
     .then(data => {        
         movies.push(...data);
+        window.onload = getMovies(movies);
     })
     .catch(error => {
         console.log('Ошибка при загрузке JSON', error);
@@ -14,7 +15,7 @@ containerMovies.classList.add('container_list');
 function getMovies(arr) {
         containerMovies.innerHTML = '';
         arr = arr.sort(() => Math.random() - 0.5);
-        for (let i = 0; i < arr.length; i++) { 
+        for (let i = 0; i < 10; i++) { 
             
             let item = document.createElement('div'); 
             item.classList.add('item-movie');           
@@ -46,8 +47,7 @@ function getMovies(arr) {
 //первичный вывод списка фильмов
 document.querySelector('h1').addEventListener('click', function() {
     getMovies(movies);
-})
-getMovies(movies);
+});
 
 //функция добавления фильма в контейнер
 function createElement(arr, parent, elem, i) {    
